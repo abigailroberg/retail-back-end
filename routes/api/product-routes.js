@@ -55,9 +55,16 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Tag,
-        attributes: ['tag_name']
+        attributes: ['tag_name'],
+        through: ProductTag,
+        as: 'product_tags'
       }
     ]
+  })
+  .then(dbProductData => res.json(dbProductData))
+  .catch(err => {
+    console.log(err)
+    res.status(500).json(err)
   })
 });
 
