@@ -1,6 +1,5 @@
 // import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-const { values } = require('sequelize/types/lib/operators');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
@@ -19,7 +18,7 @@ Product.init(
       // set as primary key
       primaryKey: true,
       // autoincrement values
-      autoIncrement: values
+      autoIncrement: true
     },
     // define product name column
     product_name: {
